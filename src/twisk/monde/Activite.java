@@ -43,4 +43,27 @@ public class Activite extends Etape{
     }
 
 
+
+    /**
+     * fonction qui retourne le temps de l'activite
+     * @return
+     */
+    public int getTemps(){
+        return this.temps;
+    }
+
+
+    /**
+     * fonction qui retourne le temps d'ecarte
+     * @return
+     */
+    public int getEcartTemps(){
+        return this.ecartTemps;
+    }
+
+
+    public String toString(){
+        return "";
+    }
+
 }
