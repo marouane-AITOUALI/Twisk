@@ -2,7 +2,7 @@ package twisk.monde;
 
 public class Guichet extends Etape {
 
-    private int nbjetons;
+    private int nbJetons;
 
 
     /**
@@ -14,6 +14,11 @@ public class Guichet extends Etape {
 
     }
 
+    @Override
+    public boolean estUneActivite() {
+        return false;
+    }
+
     /**
      * construceur de la class guichet
      * @param nom
@@ -21,7 +26,7 @@ public class Guichet extends Etape {
      */
     public Guichet(String nom, int nb){
         super(nom);
-        this.nbjetons = nb;
+        this.nbJetons = nb;
 
     }
 
