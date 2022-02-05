@@ -31,6 +31,12 @@ public class Activite extends Etape{
 
 
     /**
+     * fonction qui verifie que la class est bien un guichet
+     * @return
+     */
+
+
+    /**
      * constructure de class activite
      * @param nom
      * @param t
@@ -41,7 +47,6 @@ public class Activite extends Etape{
         this.ecartTemps = e;
         this.temps = t;
     }
-
 
 
     /**

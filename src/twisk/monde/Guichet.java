@@ -19,6 +19,21 @@ public class Guichet extends Etape {
         return false;
     }
 
+    @Override
+    public boolean estUnGuichet() {
+        return  true;
+    }
+
+
+    /**
+     * fonctoin qui verifier que la class est bien un guichet
+     * @return
+     */
+    @Override
+    public boolean estunGuichet(){
+        return true;
+    }
+
     /**
      * construceur de la class guichet
      * @param nom
@@ -30,12 +45,8 @@ public class Guichet extends Etape {
 
     }
 
-    /**
-     * fonctoin qui verifier que la class est bien un guichet
-     * @return
-     */
-    public boolean estUnGuichet(){
-        return true;
+    public String toString(){
+        return "";
     }
 
 

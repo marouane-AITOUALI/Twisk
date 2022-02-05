@@ -17,6 +17,7 @@ public abstract class Etape implements Iterable<Etape> {
 
     public abstract boolean estUneActivite();
 
+
     public abstract boolean estUnGuichet();
 
 
@@ -25,5 +26,7 @@ public abstract class Etape implements Iterable<Etape> {
         return gestionSucc.iterator();
     }
 
-
 }
+
+
+
