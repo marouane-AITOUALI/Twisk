@@ -1,13 +1,13 @@
 package twisk.monde;
 
-public class ActiviteRestriente extends Activite{
+public class ActiviteRestreinte extends Activite{
 
 
     /**
      * constructeur de la class Activite Restriente
      * @param nom
      */
-    public ActiviteRestriente(String nom){
+    public ActiviteRestreinte(String nom){
         super(nom);
     }
 
@@ -17,7 +17,7 @@ public class ActiviteRestriente extends Activite{
      * constructeur de la class Activite Restriente
      * @param nom
      */
-    public ActiviteRestriente(String nom, int t, int e) {
+    public ActiviteRestreinte(String nom, int t, int e) {
         super(nom, t, e);
     }
 }

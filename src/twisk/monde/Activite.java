@@ -65,8 +65,12 @@ public class Activite extends Etape{
         return this.ecartTemps;
     }
 
+    /**
+     * Retourne le nom de l'étape, temps et l'écart temps
+     * @return Nom de l'étape, son temps et son écart temps
+     */
     public String toString(){
-        return ""+getNom();
+        return "Activité "+getNom()+": Time "+getTemps()+" - EcartTemps :"+getEcartTemps();
     }
 
 }
