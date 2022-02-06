@@ -10,19 +10,25 @@ public class Monde implements Iterable<Etape> {
     private GestionnaireEtapes gestionEtape;
 
     public Monde(){
-
+        SasSortie = new ArrayList<>();
+        SasEntree = new ArrayList<>();
+        gestionEtape = new GestionnaireEtapes();
     }
 
     public void aCommeEntree(Etape... etapes){
-
+        for(int i = 0; i < etapes.length;++i){
+            SasEntree.add(etapes[i]);
+        }
     }
 
     public void aCommeSortie(Etape... etapes){
-
+        for(int i = 0; i < etapes.length;++i){
+            SasSortie.add(etapes[i]);
+        }
     }
 
     public void ajouter(Etape... etapes){
-
+        gestionEtape.ajouter(etapes);
     }
 
     public int nbEtapes(){
@@ -42,6 +48,6 @@ public class Monde implements Iterable<Etape> {
     }
 
     public Iterator<Etape> iterator(){
-        return null;
+        return gestionEtape.iterator();
     }
 }

@@ -16,25 +16,13 @@ public class Activite extends Etape{
     }
 
     /**
-     * fonction qui verifie que la class est bien une Activite
+     * fonction qui verifie que la class est bien un guichet
      * @return
      */
-    @Override
-    public boolean estUneActivite() {
-        return true;
-    }
-
     @Override
     public boolean estUnGuichet() {
         return false;
     }
-
-
-    /**
-     * fonction qui verifie que la class est bien un guichet
-     * @return
-     */
-
 
     /**
      * constructure de class activite
@@ -48,6 +36,14 @@ public class Activite extends Etape{
         this.temps = t;
     }
 
+    /**
+     * fonction qui verifie que la class est bien une Activite
+     * @return
+     */
+    @Override
+    public boolean estUneActivite() {
+        return true;
+    }
 
     /**
      * fonction qui retourne le temps de l'activite
@@ -57,7 +53,6 @@ public class Activite extends Etape{
         return this.temps;
     }
 
-
     /**
      * fonction qui retourne le temps d'ecarte
      * @return
@@ -66,9 +61,8 @@ public class Activite extends Etape{
         return this.ecartTemps;
     }
 
-
     public String toString(){
-        return "";
+        return ""+getNom();
     }
 
 }
