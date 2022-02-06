@@ -1,5 +1,7 @@
 package twisk.monde;
 
+import java.util.Random;
+
 public class Activite extends Etape{
 
     private int temps;
@@ -12,7 +14,9 @@ public class Activite extends Etape{
      */
     public Activite(String nom){
         super(nom);
-
+        Random r = new Random();
+        temps = 1 + r.nextInt(3);
+        ecartTemps = 1 + r.nextInt(2);
     }
 
     /**

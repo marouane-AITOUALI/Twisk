@@ -1,5 +1,7 @@
 package twisk.monde;
 
+import java.util.Random;
+
 public class Guichet extends Etape {
 
     private int nbJetons;
@@ -11,6 +13,8 @@ public class Guichet extends Etape {
      */
     public Guichet(String nom){
         super(nom);
+        Random r = new Random();
+        nbJetons = 1+r.nextInt(4);
 
     }
 
