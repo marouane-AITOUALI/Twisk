@@ -32,7 +32,7 @@ public class Monde implements Iterable<Etape> {
     }
 
     public int nbEtapes(){
-        return 0;
+        return gestionEtape.nbEtapes();
     }
 
     public int nbGuichets(){
