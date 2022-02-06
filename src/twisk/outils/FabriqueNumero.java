@@ -2,7 +2,7 @@ package twisk.outils;
 
 public class FabriqueNumero {
     private int cptEtape = 0;
-    private int cptSemaphore = 0;
+    private int cptSemaphore = 1;
 
     private static FabriqueNumero instance = new FabriqueNumero();
 
