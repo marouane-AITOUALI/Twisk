@@ -11,8 +11,8 @@ public abstract class Etape implements Iterable<Etape> {
     private int numEtape;
 
     /**
-     * constructeur de la class Etapes
-     * @param nom
+     * constructeur de la classe Etape
+     * @param nom Nom de l'étape
      */
     public Etape(String nom){
         this.nom = nom;
@@ -21,7 +21,7 @@ public abstract class Etape implements Iterable<Etape> {
     }
 
     /**
-     * fonction qui ajout un successeur
+     * fonction qui ajoute un successeur
      */
     public void ajouterSuccesseur(Etape... e){
         gestionSucc.ajouter(e);
@@ -48,7 +48,10 @@ public abstract class Etape implements Iterable<Etape> {
      */
     public abstract boolean estUnGuichet();
 
-
+    /**
+     * Retourne l'itérateur de l'étape
+     * @return Retourne Iterator<Etape>
+     */
     @Override
     public Iterator<Etape> iterator() {
         return gestionSucc.iterator();

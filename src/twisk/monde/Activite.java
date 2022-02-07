@@ -9,8 +9,8 @@ public class Activite extends Etape{
 
 
     /**
-     * constructeur de class activite
-     * @param nom
+     * constructeur de class activite, temps et écartTemps par défaut
+     * @param nom Nom de l'activité
      */
     public Activite(String nom){
         super(nom);
@@ -21,7 +21,7 @@ public class Activite extends Etape{
 
     /**
      * fonction qui verifie que la class est bien un guichet
-     * @return
+     * @return Retourne true si l'étape est guichet, false sinon
      */
     @Override
     public boolean estUnGuichet() {
@@ -30,9 +30,9 @@ public class Activite extends Etape{
 
     /**
      * constructure de class activite
-     * @param nom
-     * @param t
-     * @param e
+     * @param nom Nom de l'activité
+     * @param t Temps de l'activité
+     * @param e EcartTemps de l'activité
      */
     public Activite(String nom, int t, int e){
         super(nom);
@@ -42,7 +42,7 @@ public class Activite extends Etape{
 
     /**
      * fonction qui verifie que la class est bien une Activite
-     * @return
+     * @return true si l'étape est une activité, false sinon
      */
     @Override
     public boolean estUneActivite() {
@@ -50,8 +50,8 @@ public class Activite extends Etape{
     }
 
     /**
-     * fonction qui retourne le temps de l'activite
-     * @return
+     * Retourne le temps de l'activite
+     * @return Retourne le temps de l'activité
      */
     public int getTemps(){
         return this.temps;

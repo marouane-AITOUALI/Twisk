@@ -8,15 +8,15 @@ import java.util.Iterator;
 
 public class Simulation {
     /**
-     * contructeur de la class simulation
+     * Constructeur de la classe simulation
      */
     public Simulation(){
 
     }
 
     /**
-     * fonction affiche les etpaes de monde
-     * @param monde
+     * fonction affiche les étapes du monde
+     * @param monde Le monde
      */
     public void simuler(Monde monde){
         Iterator<Etape> it = monde.iterator();

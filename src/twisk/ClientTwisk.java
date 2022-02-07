@@ -11,7 +11,7 @@ public class ClientTwisk {
         Monde monde = new Monde();
         Etape etape1 = new Activite("Zoo",2,2);
         Etape etape2 = new Activite("Pool");
-        Etape etape3 = new Guichet("Guichet1",2);
+        Etape etape3 = new Guichet("Guichet1",4);
         Etape etape4 = new Guichet("Guichet2",2);
         etape4.ajouterSuccesseur(etape1);
         etape1.ajouterSuccesseur(etape3);

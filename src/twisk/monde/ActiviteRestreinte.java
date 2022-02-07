@@ -5,7 +5,7 @@ public class ActiviteRestreinte extends Activite{
 
     /**
      * constructeur de la class Activite Restriente
-     * @param nom
+     * @param nom Nom de l'activité
      */
     public ActiviteRestreinte(String nom){
         super(nom);

@@ -10,7 +10,7 @@ public class FabriqueNumero {
 
     /**
      * fonction pour retourner une instance de fabrique numero
-     * @return
+     * @return Retourne l'instance de FabriqueNumero
      */
     public static FabriqueNumero getInstance(){
         return instance;
@@ -25,7 +25,7 @@ public class FabriqueNumero {
 
     /**
      * fonction qui retourne le numero de semaphore
-     * @return
+     * @return Retourne le numéro de sémaphore
      */
     public int getNumeroSemaphore(){
         return cptSemaphore++;
@@ -33,7 +33,7 @@ public class FabriqueNumero {
 
     /**
      * fonction qui retourne le numero d'etapes
-     * @return
+     * @return Retourne le nombre d'étapes
      */
     public int getNumeroEtape(){
         return cptEtape++;
