@@ -70,7 +70,7 @@ public class Activite extends Etape{
      * @return Nom de l'étape, son temps et son écart temps
      */
     public String toString(){
-        return "Activité "+getNom()+": Time "+getTemps()+" - EcartTemps :"+getEcartTemps();
+        return getNom()+":  "+this.gestionSucc.nbEtapes()+" successeur - "+gestionSucc.toString();
     }
 
 }

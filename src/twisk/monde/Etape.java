@@ -6,9 +6,12 @@ import java.util.Iterator;
 
 public abstract class Etape implements Iterable<Etape> {
 
-    private String nom;
-    private GestionnaireSuccesseurs gestionSucc;
-    private int numEtape;
+    protected String nom;
+    protected GestionnaireSuccesseurs gestionSucc;
+    protected int numEtape;
+
+
+
 
     /**
      * constructeur de la classe Etape
@@ -47,6 +50,7 @@ public abstract class Etape implements Iterable<Etape> {
      * @return true, si l'etape est un giuchet , false sinon
      */
     public abstract boolean estUnGuichet();
+
 
     /**
      * Retourne l'itérateur de l'étape

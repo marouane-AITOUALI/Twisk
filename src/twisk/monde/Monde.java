@@ -29,7 +29,7 @@ public class Monde implements Iterable<Etape> {
 
     /**
      * fonction qui verifie si a est une sorie
-     * @param etapes Etapes a jouter
+     * @param etapes Etapes à ajouter
      */
     public void aCommeSortie(Etape... etapes){
         for(int i = 0; i < etapes.length;++i){

@@ -57,7 +57,7 @@ public class Guichet extends Etape {
      * @return Nom du guichet et le nombre de jetons
      */
     public String toString(){
-        return "Guichet "+getNom()+": Nombre de jetons: "+getNbJetons();
+        return getNom()+":  "+this.gestionSucc.nbEtapes()+" successeur - "+gestionSucc.toString();
     }
 
 

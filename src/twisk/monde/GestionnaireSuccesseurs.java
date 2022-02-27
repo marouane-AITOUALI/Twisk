@@ -17,6 +17,8 @@ public class GestionnaireSuccesseurs implements Iterable<Etape> {
         }
     }
 
+
+
     public int nbEtapes(){
         return etapes.size();
     }
@@ -26,5 +28,15 @@ public class GestionnaireSuccesseurs implements Iterable<Etape> {
         return etapes.iterator();
     }
 
+    public String toString(){
+        StringBuilder s = new StringBuilder();
+        for(int i =0; i < nbEtapes();i++){
+            s.append(etapes.get(i).getNom());
+            if(i != nbEtapes()){
+                s.append(" ");
+            }
+        }
+        return s.toString();
 
+    }
 }
