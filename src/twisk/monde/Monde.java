@@ -10,7 +10,7 @@ public class Monde implements Iterable<Etape> {
     private GestionnaireEtapes gestionEtape;
 
     /**
-     * costructeur de la class Monde
+     * Constructeur de la classe Monde
      */
     public Monde(){
         SasSortie = new SasSortie();
@@ -20,31 +20,32 @@ public class Monde implements Iterable<Etape> {
     }
 
     /**
-     * fonction qui verifie si a est une entree
+     * fonction qui ajoute les entrées du monde
+     * @param etapes Etapes à rajouter dans l'entrée
      */
     public void aCommeEntree(Etape... etapes){
         this.SasEntree.ajouterSuccesseur(etapes);
     }
 
     /**
-     * fonction qui verifie si a est une sorie
-     * @param etapes Etapes à ajouter
+     * fonction qui ajoute les sorties du monde
+     * @param etapes Etapes à rajouter dans la sortie
      */
     public void aCommeSortie(Etape... etapes){
         this.SasSortie.ajouterSuccesseur(etapes);
     }
 
     /**
-     * fonction qui ajoute des etapes
-     * @param etapes Etapes à ajouter
+     * fonction qui ajoute les étapes
+     * @param etapes Etapes à ajouter dans le monde
      */
     public void ajouter(Etape... etapes){
         gestionEtape.ajouter(etapes);
     }
 
     /**
-     * fonction sui retourne le nombre des etapes
-     * @return nbr des Etapes
+     * fonction qui retourne le nombre des etapes
+     * @return Nombre des Etapes
      */
     public int nbEtapes(){
         return gestionEtape.nbEtapes();
@@ -52,7 +53,7 @@ public class Monde implements Iterable<Etape> {
 
     /**
      * fonction qui retourne le nombre de guichet
-     * @return nbr guichet
+     * @return Nombre des guichets guichet
      */
     public int nbGuichets(){
         int nombre = 0;
