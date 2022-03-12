@@ -44,10 +44,7 @@ public class Monde implements Iterable<Etape> {
         gestionEtape.ajouter(etapes);
     }
 
-    public String toC(){
 
-        return "";
-    }
 
     /**
      * fonction qui retourne le nombre des etapes
@@ -78,7 +75,21 @@ public class Monde implements Iterable<Etape> {
      * @return chaine de caracteres
      */
     public String toC(){
-        return null;
+        StringBuilder s = new StringBuilder();
+        s.append("#include<stdio.h>\n#include<stdlib.h>\n#include<unistd.h>\ninclude\"def\".h\n\n");
+        Iterator<Etape> iterator = gestionEtape.iterator();
+        while (iterator.hasNext()) {
+            Etape etape = iterator.next();
+            s.append("#define " + etape.getNom() + " " + etape.getNumEtape() + "\n");
+            if (etape.estUnGuichet()) {
+                s.append("#define num_sem_" + etape.getNom() + " " + ((Guichet) etape).getSemaphore());
+            }
+        }
+            s.append("\n\n public void simuler(int ids){\n\n");
+            s.append(SasEntree.toC());
+            s.append("\n\n}");
+
+        return s.toString();
     }
 
 
