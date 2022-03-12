@@ -11,6 +11,7 @@ public class ClientTwisk {
 
         Guichet guichet = new Guichet("ticket", 2) ;
         Activite act1 = new ActiviteRestreinte("toboggan", 2, 1) ;
+        Activite act2 = new ActiviteRestreinte("Billiard", 2, 1) ;
 
         Etape etape1 = new Activite("musee") ;
         Etape etape2 = new Activite("boutique") ;
@@ -18,17 +19,20 @@ public class ClientTwisk {
         etape1.ajouterSuccesseur(etape2) ;
         etape2.ajouterSuccesseur(guichet) ;
         guichet.ajouterSuccesseur(act1);
+        act1.ajouterSuccesseur(act2);
 
-        monde.ajouter(etape1, etape2) ;
+        monde.ajouter(etape1, etape2,act2) ;
         monde.ajouter(act1) ;
         monde.ajouter(guichet) ;
 
         monde.aCommeEntree(etape1);
-        monde.aCommeSortie(act1) ;
+        monde.aCommeSortie(act2) ;
 
         Iterator<Etape> ite = monde.iterator() ;
         Simulation simulation = new Simulation(monde);
         simulation.simuler();
+        System.out.println(monde.toC());
+
     }
     }
 

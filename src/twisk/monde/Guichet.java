@@ -30,6 +30,7 @@ public class Guichet extends Etape {
     public Guichet(String nom, int nb){
         super(nom);
         this.nbJetons = nb;
+        semaphore = FabriqueNumero.getInstance().getNumeroSemaphore();
     }
 
     public int getSemaphore(){
@@ -63,9 +64,9 @@ public class Guichet extends Etape {
         StringBuilder s = new StringBuilder();
         Iterator<Etape> iterator = this.iterator();
         ActiviteRestreinte etapeNext = (ActiviteRestreinte) iterator.next();
-        s.append("P(ids,semaphore"+getNom()+")\n");
-        s.append("transfert("+this.getNom()+","+etapeNext.getNom()+")\n");
-        s.append("delai("+etapeNext.getTemps()+","+etapeNext.getEcartTemps()+")\n");
+        s.append("\nP(ids,semaphore"+getNom()+")\n");
+        s.append("    transfert("+this.getNom()+","+etapeNext.getNom()+")\n");
+        s.append("    delai("+etapeNext.getTemps()+","+etapeNext.getEcartTemps()+")\n");
         s.append("V(ids,semaphore"+getNom()+")\n");
         Etape next = etapeNext.iterator().next();
         s.append("transfert("+etapeNext.getNom()+","

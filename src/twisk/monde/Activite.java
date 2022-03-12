@@ -78,8 +78,8 @@ public class Activite extends Etape{
         StringBuilder s = new StringBuilder();
         Iterator<Etape> iterator = this.iterator();
         Etape etapeNext = iterator.next();
-        s.append("delai("+getTemps()+","+getEcartTemps()+"), " +
-                "transfert("+this.getNom()+","+ etapeNext.getNom()+")\n");
+        s.append("\ndelai("+getTemps()+","+getEcartTemps()+"), " +
+                "\ntransfert("+this.getNom()+","+ etapeNext.getNom()+")");
         s.append(etapeNext.toC());
 
         return s.toString();

@@ -11,7 +11,7 @@ public abstract class Etape implements Iterable<Etape> {
     protected int numEtape;
 
 
-    public abstract String toC();
+
 
     /**
      * constructeur de la classe Etape
@@ -33,6 +33,7 @@ public abstract class Etape implements Iterable<Etape> {
     public void ajouterSuccesseur(Etape... e){
         gestionSucc.ajouter(e);
     }
+
 
     /**
      * fonction qui verifie qu'il s'agit d'une activite

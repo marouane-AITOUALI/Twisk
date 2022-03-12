@@ -1,5 +1,7 @@
 package twisk.monde;
 
+import java.util.Iterator;
+
 public class ActiviteRestreinte extends Activite{
 
 
@@ -12,7 +14,11 @@ public class ActiviteRestreinte extends Activite{
     }
 
     public String toC(){
-        return iterator().next().toC();
+        Iterator<Etape> iterator = this.iterator();
+        if(iterator.hasNext()){
+            return iterator.next().toC();
+        }
+        return "";
     }
 
     /**
