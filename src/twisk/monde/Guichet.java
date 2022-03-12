@@ -70,8 +70,10 @@ public class Guichet extends Etape {
         s.append("V(ids,num_sem_"+getNom()+")\n");
         Etape next = etapeNext.iterator().next();
         s.append("transfert("+etapeNext.getNom()+","
-                +next.getNom()+")\n");
+                    +next.getNom()+")\n");
         s.append(next.toC());
+
+
 
         return s.toString();
     }

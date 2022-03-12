@@ -21,12 +21,12 @@ public class ClientTwisk {
         guichet.ajouterSuccesseur(act1);
         act1.ajouterSuccesseur(act2);
 
-        monde.ajouter(etape1, etape2,act2) ;
-        monde.ajouter(act1) ;
+        monde.ajouter(etape1, etape2) ;
+        monde.ajouter(act1, act2) ;
         monde.ajouter(guichet) ;
 
         monde.aCommeEntree(etape1);
-        monde.aCommeSortie(act2) ;
+        monde.aCommeSortie(act1) ;
 
         Iterator<Etape> ite = monde.iterator() ;
         Simulation simulation = new Simulation(monde);
