@@ -59,6 +59,10 @@ public class Guichet extends Etape {
         return true;
     }
 
+    /**
+     * fonction qui retourne le code C en chaine de caractere
+     * @return
+     */
     @Override
     public String toC() {
         StringBuilder s = new StringBuilder();
@@ -68,10 +72,24 @@ public class Guichet extends Etape {
         s.append("    transfert("+this.getNom()+","+etapeNext.getNom()+")\n");
         s.append("    delai("+etapeNext.getTemps()+","+etapeNext.getEcartTemps()+")\n");
         s.append("V(ids,num_sem_"+getNom()+")\n");
-        Etape next = etapeNext.iterator().next();
-        s.append("transfert("+etapeNext.getNom()+","
+
+        if (etapeNext.iterator().hasNext()){
+            Etape next = etapeNext.iterator().next();
+            s.append("transfert("+etapeNext.getNom()+","
                     +next.getNom()+")\n");
-        s.append(next.toC());
+            if (next.iterator().hasNext()){
+                s.append(next.toC());
+            }
+            else{
+                s.append("transfert("+next.getNom()+",Sortie)\n");
+            }
+        }
+        else{
+            s.append("transfert("+etapeNext.getNom()+",Sortie)\n");
+        }
+
+
+
 
 
 

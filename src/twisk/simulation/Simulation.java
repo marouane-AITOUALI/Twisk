@@ -18,13 +18,13 @@ public class Simulation {
 
     /**
      * fonction affiche les étapes du monde
-     * @param monde Le monde
      */
     public void simuler(){
         Iterator<Etape> it = monde.iterator();
         while(it.hasNext()){
             System.out.println(it.next().toString());
         }
+        System.out.println(monde.toC());
     }
 
 }
