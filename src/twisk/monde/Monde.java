@@ -76,7 +76,7 @@ public class Monde implements Iterable<Etape> {
      */
     public String toC(){
         StringBuilder s = new StringBuilder();
-        s.append("#include<stdio.h>\n#include<stdlib.h>\n#include<unistd.h>\ninclude\"def\".h\n\n");
+        s.append("\n\n#include <stdio.h>\n#include <stdlib.h>\ninclude \"def\".h\n\n");
         Iterator<Etape> iterator = gestionEtape.iterator();
         while (iterator.hasNext()) {
             Etape etape = iterator.next();
@@ -85,7 +85,7 @@ public class Monde implements Iterable<Etape> {
                 s.append("#define num_sem_" + etape.getNom() + " " + ((Guichet) etape).getSemaphore());
             }
         }
-            s.append("\n\n public void simuler(int ids){\n\n");
+            s.append("\n\npublic void simuler(int ids){\n\n");
             s.append(SasEntree.toC());
             s.append("\n\n}");
 
