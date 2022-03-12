@@ -77,11 +77,15 @@ public class Activite extends Etape{
     public String toC(){
         StringBuilder s = new StringBuilder();
         Iterator<Etape> iterator = this.iterator();
-        Etape etapeNext = iterator.next();
-        if (etapeNext != null){
-            s.append("\ndelai("+getTemps()+","+getEcartTemps()+"), " +
-                    "\ntransfert("+this.getNom()+","+ etapeNext.getNom()+")");
+        if(iterator.hasNext()){
+            Etape etapeNext = iterator.next();
+            s.append("delai("+getTemps()+","+getEcartTemps()+")\n");
+            s.append("transfert("+this.getNom()+","+ etapeNext.getNom()+")\n");
             s.append(etapeNext.toC());
+
+        }
+        else{
+            s.append("transfert("+getNom()+",Sortie)\n");
         }
 
 
