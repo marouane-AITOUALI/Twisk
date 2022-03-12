@@ -11,8 +11,6 @@ public abstract class Etape implements Iterable<Etape> {
     protected int numEtape;
 
 
-    public abstract String toC();
-
     /**
      * constructeur de la classe Etape
      * @param nom Nom de l'étape

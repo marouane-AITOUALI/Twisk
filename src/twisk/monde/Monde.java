@@ -44,10 +44,6 @@ public class Monde implements Iterable<Etape> {
         gestionEtape.ajouter(etapes);
     }
 
-    public String toC(){
-
-        return "";
-    }
 
     /**
      * fonction qui retourne le nombre des etapes
