@@ -52,6 +52,8 @@ public abstract class Etape implements Iterable<Etape> {
     public abstract boolean estUnGuichet();
 
 
+    public abstract String toC();
+
     /**
      * Retourne l'itérateur de l'étape
      * @return Retourne Iterator<Etape>

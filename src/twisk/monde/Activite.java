@@ -28,6 +28,11 @@ public class Activite extends Etape{
         return false;
     }
 
+    @Override
+    public String toC() {
+        return null;
+    }
+
     /**
      * constructure de class activite
      * @param nom Nom de l'activité
@@ -72,5 +77,7 @@ public class Activite extends Etape{
     public String toString(){
         return getNom()+":  "+this.gestionSucc.nbEtapes()+" successeur - "+gestionSucc.toString();
     }
+
+
 
 }

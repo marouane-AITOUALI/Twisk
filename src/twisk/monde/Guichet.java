@@ -51,6 +51,11 @@ public class Guichet extends Etape {
         return true;
     }
 
+    @Override
+    public String toC() {
+        return null;
+    }
+
 
     /**
      * Retourne Nom du guichet et le nombre de jetons
