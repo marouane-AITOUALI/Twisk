@@ -73,6 +73,14 @@ public class Monde implements Iterable<Etape> {
         return nombre;
     }
 
+    /**
+     * fonction qui retourne une chaine de caractére contenant le code C
+     * @return chaine de caracteres
+     */
+    public String toC(){
+        return null;
+    }
+
 
     public Iterator<Etape> iterator(){
         return gestionEtape.iterator();
