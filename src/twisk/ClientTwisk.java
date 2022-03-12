@@ -1,24 +1,34 @@
 package twisk;
 
-import twisk.monde.Activite;
-import twisk.monde.Etape;
-import twisk.monde.Guichet;
-import twisk.monde.Monde;
+import twisk.monde.*;
 import twisk.simulation.Simulation;
+
+import java.util.Iterator;
 
 public class ClientTwisk {
     public static void main(String []args){
-        Monde monde = new Monde();
-        Etape etape1 = new Activite("Zoo",2,2);
-        Etape etape2 = new Activite("Pool");
-        Etape etape3 = new Guichet("Guichet1",4);
-        Etape etape4 = new Guichet("Guichet2",2);
-        etape4.ajouterSuccesseur(etape1);
-        etape1.ajouterSuccesseur(etape3);
-        etape3.ajouterSuccesseur(etape2);
-        monde.ajouter(etape1,etape2,etape3,etape4);
-        monde.aCommeEntree(etape4);monde.aCommeSortie(etape2);
-        Simulation simulation = new Simulation();
-        simulation.simuler(monde);
+        Monde monde = new Monde() ;
+
+        Guichet guichet = new Guichet("ticket", 2) ;
+        Activite act1 = new ActiviteRestreinte("toboggan", 2, 1) ;
+
+        Etape etape1 = new Activite("musee") ;
+        Etape etape2 = new Activite("boutique") ;
+
+        etape1.ajouterSuccesseur(etape2) ;
+        etape2.ajouterSuccesseur(guichet) ;
+        guichet.ajouterSuccesseur(act1);
+
+        monde.ajouter(etape1, etape2) ;
+        monde.ajouter(act1) ;
+        monde.ajouter(guichet) ;
+
+        monde.aCommeEntree(etape1);
+        monde.aCommeSortie(act1) ;
+
+        Iterator<Etape> ite = monde.iterator() ;
+        Simulation simulation = new Simulation(monde);
+        simulation.simuler();
     }
-}
+    }
+

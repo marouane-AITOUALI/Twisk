@@ -11,7 +11,9 @@ public class ActiviteRestreinte extends Activite{
         super(nom);
     }
 
-
+    public String toC(){
+        return iterator().next().toC();
+    }
 
     /**
      * constructeur de la class Activite Restriente

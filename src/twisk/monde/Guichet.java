@@ -1,5 +1,8 @@
 package twisk.monde;
 
+import twisk.outils.FabriqueNumero;
+
+import java.util.Iterator;
 import java.util.Random;
 
 public class Guichet extends Etape {
@@ -16,7 +19,7 @@ public class Guichet extends Etape {
         super(nom);
         Random r = new Random();
         nbJetons = 1+r.nextInt(4);
-
+        semaphore = FabriqueNumero.getInstance().getNumeroSemaphore();
     }
 
     /**
@@ -27,6 +30,10 @@ public class Guichet extends Etape {
     public Guichet(String nom, int nb){
         super(nom);
         this.nbJetons = nb;
+    }
+
+    public int getSemaphore(){
+        return semaphore;
     }
 
     @Override
@@ -53,7 +60,19 @@ public class Guichet extends Etape {
 
     @Override
     public String toC() {
-        return null;
+        StringBuilder s = new StringBuilder();
+        Iterator<Etape> iterator = this.iterator();
+        ActiviteRestreinte etapeNext = (ActiviteRestreinte) iterator.next();
+        s.append("P(ids,semaphore"+getNom()+")\n");
+        s.append("transfert("+this.getNom()+","+etapeNext.getNom()+")\n");
+        s.append("delai("+etapeNext.getTemps()+","+etapeNext.getEcartTemps()+")\n");
+        s.append("V(ids,semaphore"+getNom()+")\n");
+        Etape next = etapeNext.iterator().next();
+        s.append("transfert("+etapeNext.getNom()+","
+                +next.getNom()+")\n");
+        s.append(next.toC());
+
+        return s.toString();
     }
 
 

@@ -11,7 +11,7 @@ public abstract class Etape implements Iterable<Etape> {
     protected int numEtape;
 
 
-
+    public abstract String toC();
 
     /**
      * constructeur de la classe Etape
@@ -21,6 +21,10 @@ public abstract class Etape implements Iterable<Etape> {
         this.nom = nom;
         gestionSucc = new GestionnaireSuccesseurs();
         numEtape = FabriqueNumero.getInstance().getNumeroEtape();
+    }
+
+    public int nbSuccesseurs(){
+        return gestionSucc.nbEtapes();
     }
 
     /**
@@ -50,6 +54,14 @@ public abstract class Etape implements Iterable<Etape> {
      * @return true, si l'etape est un giuchet , false sinon
      */
     public abstract boolean estUnGuichet();
+
+    /**
+     * Retourne le numéro de l'étape
+     * @return Numero de l'étape
+     */
+    public int getNumEtape(){
+        return numEtape;
+    }
 
 
     public abstract String toC();

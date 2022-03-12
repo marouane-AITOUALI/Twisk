@@ -1,5 +1,6 @@
 package twisk.monde;
 
+import java.util.Iterator;
 import java.util.Random;
 
 public class Activite extends Etape{
@@ -26,11 +27,6 @@ public class Activite extends Etape{
     @Override
     public boolean estUnGuichet() {
         return false;
-    }
-
-    @Override
-    public String toC() {
-        return null;
     }
 
     /**
@@ -78,6 +74,15 @@ public class Activite extends Etape{
         return getNom()+":  "+this.gestionSucc.nbEtapes()+" successeur - "+gestionSucc.toString();
     }
 
+    public String toC(){
+        StringBuilder s = new StringBuilder();
+        Iterator<Etape> iterator = this.iterator();
+        Etape etapeNext = iterator.next();
+        s.append("delai("+getTemps()+","+getEcartTemps()+"), " +
+                "transfert("+this.getNom()+","+ etapeNext.getNom()+")\n");
+        s.append(etapeNext.toC());
 
+        return s.toString();
+    }
 
 }

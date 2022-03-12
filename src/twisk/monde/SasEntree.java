@@ -9,4 +9,8 @@ public class SasEntree extends Activite {
     public SasEntree() {
         super("Entree");
     }
+
+    public String toC(){
+        return "entrer("+this.getNom()+"), delai("+getTemps()+","+getEcartTemps()+")\n";
+    }
 }
