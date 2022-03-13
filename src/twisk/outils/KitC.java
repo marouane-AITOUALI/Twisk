@@ -70,7 +70,6 @@ public class KitC {
     }
 
     public void construireLibrairie(){
-
         try {
             String commande = "gcc -shared tmp/twisk/programmeC.o tmp/twisk/client.o -o tmp/twisk/libTwisk.so";
             Runtime runtime = Runtime.getRuntime();
