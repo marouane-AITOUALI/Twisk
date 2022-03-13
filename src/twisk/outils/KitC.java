@@ -67,11 +67,19 @@ public class KitC {
         catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
-        public void construireLibrairie(){
+    public void construireLibrairie(){
 
+        try {
+            String commande = "gcc -shared tmp/twisk/programmeC.o tmp/twisk/client.o -o tmp/twisk/libTwisk.so";
+            Runtime runtime = Runtime.getRuntime();
+            Process p;
+            p = runtime.exec(commande);
+            p.waitFor();
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
         }
-
     }
 
 }
