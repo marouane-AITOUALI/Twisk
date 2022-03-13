@@ -14,8 +14,8 @@ public class Monde implements Iterable<Etape> {
      * Constructeur de la classe Monde
      */
     public Monde(){
-        SasSortie = new SasSortie();
         SasEntree = new SasEntree();
+        SasSortie = new SasSortie();
         gestionEtape = new GestionnaireEtapes();
         this.ajouter(this.SasEntree, this.SasSortie);
     }
@@ -42,6 +42,7 @@ public class Monde implements Iterable<Etape> {
      */
     public void ajouter(Etape... etapes){
         gestionEtape.ajouter(etapes);
+        Iterator<Etape> iterator = gestionEtape.iterator();
     }
 
 
@@ -76,7 +77,7 @@ public class Monde implements Iterable<Etape> {
      */
     public String toC(){
         StringBuilder s = new StringBuilder();
-        s.append("\n\n#include <stdio.h>\n#include <stdlib.h>\ninclude \"def\".h\n\n");
+        s.append("#include <stdio.h>\n#include <stdlib.h>\n#include \"def.h\"\n\n");
         Iterator<Etape> iterator = gestionEtape.iterator();
         while (iterator.hasNext()) {
             Etape etape = iterator.next();
@@ -85,9 +86,9 @@ public class Monde implements Iterable<Etape> {
                 s.append("#define num_sem_" + etape.getNom() + " " + ((Guichet) etape).getSemaphore());
             }
         }
-            s.append("\n\npublic void simuler(int ids){\n\n");
+            s.append("\n\nvoid simulation(int ids){\n\n");
             s.append(SasEntree.toC());
-            s.append("\n\n}");
+            s.append("\n}\n");
 
         return s.toString();
     }

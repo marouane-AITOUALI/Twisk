@@ -3,11 +3,14 @@ package twisk.simulation;
 import twisk.monde.Etape;
 import twisk.monde.Monde;
 import twisk.monde.SasEntree;
+import twisk.outils.KitC;
 
 import java.util.Iterator;
 
 public class Simulation {
+
     private Monde monde;
+    private KitC kit = new KitC();
     /**
      * Constructeur de la classe simulation
      */
@@ -24,7 +27,10 @@ public class Simulation {
         while(it.hasNext()){
             System.out.println(it.next().toString());
         }
-        System.out.println(monde.toC());
+        kit.creerEnvironnement();
+        kit.creerFichier(monde.toC());
+        kit.compiler();
+        //System.out.println(monde.toC());
     }
 
 }

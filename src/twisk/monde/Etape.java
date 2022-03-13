@@ -27,6 +27,10 @@ public abstract class Etape implements Iterable<Etape> {
         return gestionSucc.nbEtapes();
     }
 
+    public void setNumEtape(int num){
+        numEtape = num;
+    }
+
     /**
      * fonction qui ajoute un successeur
      */

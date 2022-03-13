@@ -68,24 +68,24 @@ public class Guichet extends Etape {
         StringBuilder s = new StringBuilder();
         Iterator<Etape> iterator = this.iterator();
         ActiviteRestreinte etapeNext = (ActiviteRestreinte) iterator.next();
-        s.append("\nP(ids,num_sem_"+getNom()+")\n");
-        s.append("    transfert("+this.getNom()+","+etapeNext.getNom()+")\n");
-        s.append("    delai("+etapeNext.getTemps()+","+etapeNext.getEcartTemps()+")\n");
-        s.append("V(ids,num_sem_"+getNom()+")\n");
+        s.append("\n    P(ids,num_sem_"+getNom()+");\n");
+        s.append("        transfert("+this.getNom()+","+etapeNext.getNom()+");\n");
+        s.append("        delai("+etapeNext.getTemps()+","+etapeNext.getEcartTemps()+");\n");
+        s.append("    V(ids,num_sem_"+getNom()+");\n");
 
         if (etapeNext.iterator().hasNext()){
             Etape next = etapeNext.iterator().next();
-            s.append("transfert("+etapeNext.getNom()+","
-                    +next.getNom()+")\n");
+            s.append("    transfert("+etapeNext.getNom()+","
+                    +next.getNom()+");\n");
             if (next.iterator().hasNext()){
                 s.append(next.toC());
             }
             else{
-                s.append("transfert("+next.getNom()+",Sortie)\n");
+                s.append("    transfert("+next.getNom()+",Sortie);\n");
             }
         }
         else{
-            s.append("transfert("+etapeNext.getNom()+",Sortie)\n");
+            s.append("    transfert("+etapeNext.getNom()+",Sortie);\n");
         }
 
 

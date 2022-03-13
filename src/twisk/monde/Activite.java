@@ -16,8 +16,9 @@ public class Activite extends Etape{
     public Activite(String nom){
         super(nom);
         Random r = new Random();
-        temps = 1 + r.nextInt(3);
         ecartTemps = 1 + r.nextInt(2);
+        temps = 1 + ecartTemps;
+
     }
 
     /**
@@ -79,13 +80,13 @@ public class Activite extends Etape{
         Iterator<Etape> iterator = this.iterator();
         if(iterator.hasNext()){
             Etape etapeNext = iterator.next();
-            s.append("delai("+getTemps()+","+getEcartTemps()+")\n");
-            s.append("transfert("+this.getNom()+","+ etapeNext.getNom()+")\n");
+            s.append("    delai("+getTemps()+","+getEcartTemps()+");\n");
+            s.append("    transfert("+this.getNom()+","+ etapeNext.getNom()+");\n");
             s.append(etapeNext.toC());
 
         }
         else{
-            s.append("transfert("+getNom()+",Sortie)\n");
+            s.append("    transfert("+getNom()+",Sortie);\n");
         }
 
 

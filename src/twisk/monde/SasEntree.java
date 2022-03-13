@@ -11,8 +11,8 @@ public class SasEntree extends Activite {
     }
 
     public String toC(){
-        return "entrer("+this.getNom()+")\ndelai("+getTemps()+","+getEcartTemps()+")\n"
-                +"transfert("+this.getNom()+","
-                + this.iterator().next().getNom()+")"+this.iterator().next().toC();
+        return "    entrer("+this.getNom()+");\n    delai("+getTemps()+","+getEcartTemps()+");\n"
+                +"    transfert("+this.getNom()+","
+                + this.iterator().next().getNom()+");\n"+this.iterator().next().toC();
     }
 }
