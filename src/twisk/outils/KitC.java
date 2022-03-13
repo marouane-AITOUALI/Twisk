@@ -24,7 +24,6 @@ public class KitC {
         try{
             Path directories = Files.createDirectories(Paths.get("tmp/twisk"));
             String [] liste = {"programmeC.o", "def.h"};
-            System.out.println("ok");
             for(String nom: liste){
                 Path source = Paths.get(getClass().getResource("/codeC/"+nom).getPath());
                 Path newdir = Paths.get("tmp/twisk");
