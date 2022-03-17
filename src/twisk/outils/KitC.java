@@ -23,7 +23,7 @@ public class KitC {
     public void creerEnvironnement(){
         try{
             Path directories = Files.createDirectories(Paths.get("tmp/twisk"));
-            String [] liste = {"programmeC.o", "def.h"};
+            String [] liste = {"programmeC.o", "def.h", "codeNatif.o"};
             for(String nom: liste){
                 Path source = Paths.get(getClass().getResource("/codeC/"+nom).getPath());
                 Path newdir = Paths.get("tmp/twisk");
@@ -53,7 +53,7 @@ public class KitC {
         try{
             String commande = "gcc -Wall -fPIC -c tmp/twisk/client.c -o tmp/twisk/client.o";
             Runtime runtime = Runtime.getRuntime();
-            Process p = runtime.exec("gcc -Wall -fPIC -c tmp/twisk/client.c -o tmp/twisk/client.o");
+            Process p = runtime.exec(commande);
             BufferedReader output = new BufferedReader(new InputStreamReader(p.getInputStream()));
             BufferedReader error = new BufferedReader(new InputStreamReader(p.getErrorStream()));
             String ligne;
@@ -71,7 +71,8 @@ public class KitC {
 
     public void construireLibrairie(){
         try {
-            String commande = "gcc -shared tmp/twisk/programmeC.o tmp/twisk/client.o -o tmp/twisk/libTwisk.so";
+            String commande = "gcc -shared tmp/twisk/programmeC.o tmp/twisk/codeNatif.o" +
+                    " tmp/twisk/client.o -o tmp/twisk/libTwisk.so";
             Runtime runtime = Runtime.getRuntime();
             Process p;
             p = runtime.exec(commande);

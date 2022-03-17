@@ -24,3 +24,24 @@ void nettoyage() ;
 void simulation(int ids) ;
 
 #endif
+
+
+/*
+if(clients[(nbClients+1)*(nbEtapes-1)] == nbClients){
+        fin = 1;
+        break;
+    }
+    printf("Etape%d: ", i);
+    for (int a = 0; a < nbClients; a++){
+        printf("%d ", clients[i*nbClients + i + 1 + a]);
+    }
+    printf("\n");
+    i++;
+    printf("%d\n", clients[i*nbClients  + i]);
+    if(i == nbEtapes && clients[i*nbClients  + i] != nbClients){
+        clients = ou_sont_les_clients(nbEtapes, nbClients);
+        i = 0;
+    }
+    
+    delai(3,2);
+    //printf("%d\n", clients[i*nbClients  + i]);*/
