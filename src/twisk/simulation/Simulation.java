@@ -19,6 +19,10 @@ public class Simulation {
 
     }
 
+    public native int[] start_simulation(int nbEtapes, int nbServices, int nbClients, int []tabJetonsServices);
+    public native void nettoyage();
+    public native int[] ou_sont_les_clients(int nbEtapes, int nbClients);
+
     /**
      * fonction affiche les étapes du monde
      */

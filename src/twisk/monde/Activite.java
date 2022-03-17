@@ -20,6 +20,17 @@ public class Activite extends Etape{
         temps = 1 + ecartTemps;
 
     }
+    /**
+     * constructeur de class activite, temps et écartTemps par défaut
+     * @param nom Nom de l'activité
+     */
+    public Activite(String nom, int temps, int ecartTemps){
+        super(nom);
+        Random r = new Random();
+        this.ecartTemps = ecartTemps;
+        this.temps = ecartTemps + r.nextInt(2);
+
+    }
 
     /**
      * fonction qui verifie que la class est bien un guichet
