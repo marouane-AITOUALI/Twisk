@@ -35,7 +35,7 @@ public class Simulation {
         kit.creerFichier(monde.toC());
         kit.compiler();
         kit.construireLibrairie();
-        //System.out.println(monde.toC());
+        System.out.println(monde.toC());
     }
 
 }

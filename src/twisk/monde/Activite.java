@@ -26,9 +26,8 @@ public class Activite extends Etape{
      */
     public Activite(String nom, int temps, int ecartTemps){
         super(nom);
-        Random r = new Random();
         this.ecartTemps = ecartTemps;
-        this.temps = ecartTemps + r.nextInt(2);
+        this.temps = temps;
 
     }
 
