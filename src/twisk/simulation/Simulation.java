@@ -6,7 +6,6 @@ import twisk.monde.SasEntree;
 import twisk.outils.KitC;
 
 import java.util.Iterator;
-import java.util.Scanner;
 
 public class Simulation {
 
@@ -37,76 +36,6 @@ public class Simulation {
         kit.compiler();
         kit.construireLibrairie();
         System.load("/tmp/twisk/libTwisk.so");
-        Scanner s = new Scanner(System.in);
-
-        int nbGuichet = 0;
-        int nbClients  = 0;
-        int nbEtapes = 6;
-        System.out.println("Entrer le nombre de clients : ");
-        nbClients = s.nextInt();
-
-        int jetonsGuichet;
-        System.out.println("Entrer le nombre de guichet : ");
-        nbGuichet = s.nextInt();
-        int []tabJetonsGuichet = new int[nbGuichet];
-
-
-
-        for(int i = 0; i < nbGuichet; i++){
-            System.out.println("Entrer le nombre de jetons du guichet : "+ i+1);
-            jetonsGuichet = s.nextInt();
-            tabJetonsGuichet[i] = jetonsGuichet;
-        }
-
-
-        int []tabProcessus = start_simulation(nbEtapes,nbGuichet,nbClients,tabJetonsGuichet);
-
-
-        System.out.println("Les clients: ");
-        for (int i =0; i < nbClients; i++){
-            if(i != nbClients - 1){
-                System.out.println(""+tabProcessus[i]+",");
-            }
-            else{
-                System.out.println("" + tabProcessus[i] +"\n");
-            }
-        }
-        System.out.println("\n");
-
-        int []clients = ou_sont_les_clients(nbEtapes,nbClients);
-
-
-        int i = 0;
-        boolean fin = false;
-        while (!fin){
-            int nbClientsExistant = clients[i*nbClients + i];
-            System.out.println("Etape "+i+ " " + nbClientsExistant + " clients: ");
-
-            if(nbClientsExistant != 0){
-                for(int c = 0; c < nbClientsExistant; c++){
-                    System.out.println(clients[i*nbClients + i + 1 + c]);
-                }
-            }
-            System.out.println("\n");
-            i++;
-            if(i == nbEtapes && clients[(nbClients +1)] != nbClients){
-                clients=ou_sont_les_clients(nbEtapes,nbClients);
-                i = 0;
-            }
-            else if (i == nbEtapes && clients[(nbClients +1)] == nbClients){
-            /*printf("Etape%d: ", i-1);
-            for(int c = 0; c < nbEtapes; c++){
-                printf("%d ", clients[(i-1)*nbClients + i  + c]);
-            }*/
-                fin = true;
-            }
-
-            delai(2,1);
-
-        }
-
-        nettoyage();
-
 
         //System.out.println(monde.toC());
     }
