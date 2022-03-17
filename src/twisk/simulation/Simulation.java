@@ -35,7 +35,8 @@ public class Simulation {
         kit.creerFichier(monde.toC());
         kit.compiler();
         kit.construireLibrairie();
-        System.out.println(monde.toC());
+        System.load("/tmp/twisk/libTwisk.so");
+        //System.out.println(monde.toC());
     }
 
 
