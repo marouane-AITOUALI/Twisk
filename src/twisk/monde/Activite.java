@@ -30,17 +30,6 @@ public class Activite extends Etape{
         return false;
     }
 
-    /**
-     * constructure de class activite
-     * @param nom Nom de l'activité
-     * @param t Temps de l'activité
-     * @param e EcartTemps de l'activité
-     */
-    public Activite(String nom, int t, int e){
-        super(nom);
-        this.ecartTemps = e;
-        this.temps = t;
-    }
 
     /**
      * fonction qui verifie que la class est bien une Activite
