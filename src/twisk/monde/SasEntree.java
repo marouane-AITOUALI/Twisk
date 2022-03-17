@@ -7,7 +7,7 @@ public class SasEntree extends Activite {
      * constructeur de la class sosEntree
      */
     public SasEntree() {
-        super("Entree", 2,1);
+        super("Entree", 4,2);
     }
 
     public String toC(){
