@@ -96,7 +96,7 @@ public class Simulation {
         boolean fin = false;
         while (!fin){
             int nbClientsExistant = clients[i*nbClients + i];
-            System.out.print("Etape "+i+ " " + nbClientsExistant + " clients: ");
+            System.out.print("Etape "+i+ " ("+monde.getNomparNumero(i)+") " + nbClientsExistant + " clients: ");
 
             if(nbClientsExistant != 0){
                 for(int c = 0; c < nbClientsExistant; c++){

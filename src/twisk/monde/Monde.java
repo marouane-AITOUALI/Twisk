@@ -42,10 +42,16 @@ public class Monde implements Iterable<Etape> {
      */
     public void ajouter(Etape... etapes){
         gestionEtape.ajouter(etapes);
-        Iterator<Etape> iterator = gestionEtape.iterator();
     }
 
-
+    public String getNomparNumero(int i){
+        for(Etape e: gestionEtape){
+            if(e.getNumEtape() == i){
+                return e.getNom();
+            }
+        }
+        return null;
+    }
 
     /**
      * fonction qui retourne le nombre des etapes
