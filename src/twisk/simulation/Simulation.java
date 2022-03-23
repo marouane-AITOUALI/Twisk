@@ -12,6 +12,9 @@ public class Simulation {
 
     private Monde monde;
     private KitC kit = new KitC();
+    private int nbClients = 3;
+
+
     /**
      * Constructeur de la classe simulation
      */
@@ -20,9 +23,13 @@ public class Simulation {
 
     }
 
-    public native int[] start_simulation(int nbEtapes, int nbServices, int nbClients, int []tabJetonsServices);
+    public native int[] start_simulation(int nbEtapes, int nbServices, int nbClients, int [] tabJetonsServices);
     public native void nettoyage();
     public native int[] ou_sont_les_clients(int nbEtapes, int nbClients);
+
+    public void setNbClient(int nbClient){
+        this.nbClients = nbClient;
+    }
 
     /**
      * fonction affiche les étapes du monde
@@ -36,39 +43,48 @@ public class Simulation {
         kit.creerFichier(monde.toC());
         kit.compiler();
         kit.construireLibrairie();
-        System.load("/tmp/twisk/libTwisk.so");
-        Scanner s = new Scanner(System.in);
 
-        int nbGuichet = 0;
-        int nbClients  = 0;
-        int nbEtapes = 6;
-        System.out.println("Entrer le nombre de clients : ");
-        nbClients = s.nextInt();
+        String library = "/tmp/twisk/libTwisk.so";
+        System.load(library);
 
-        int jetonsGuichet;
+
+
+        int nbGuichet = monde.nbGuichets();
+
+        int nbEtapes = monde.nbEtapes();
+
+
+        /*int jetonsGuichet;
         System.out.println("Entrer le nombre de guichet : ");
         nbGuichet = s.nextInt();
+        System.out.println(nbGuichet);
+        System.out.println(nbClients);
+        System.out.println(nbEtapes);*/
         int []tabJetonsGuichet = new int[nbGuichet];
 
-
+        int j = 1;
 
         for(int i = 0; i < nbGuichet; i++){
-            System.out.println("Entrer le nombre de jetons du guichet : "+ i+1);
+            tabJetonsGuichet[i] = monde.getGestionEtape().getJetonsParSemaphore(j);
+            System.out.println(tabJetonsGuichet[i]);
+            j++;
+            /*System.out.println("Entrer le nombre de jetons du guichet"+ (i+1)+": ");
             jetonsGuichet = s.nextInt();
-            tabJetonsGuichet[i] = jetonsGuichet;
+            tabJetonsGuichet[i] = jetonsGuichet;*/
+
         }
 
 
         int []tabProcessus = start_simulation(nbEtapes,nbGuichet,nbClients,tabJetonsGuichet);
 
 
-        System.out.println("Les clients: ");
+        System.out.print("Les clients: ");
         for (int i =0; i < nbClients; i++){
             if(i != nbClients - 1){
-                System.out.println(""+tabProcessus[i]+",");
+                System.out.print(""+tabProcessus[i]+", ");
             }
             else{
-                System.out.println("" + tabProcessus[i] +"\n");
+                System.out.println(tabProcessus[i]);
             }
         }
         System.out.println("\n");
@@ -80,28 +96,37 @@ public class Simulation {
         boolean fin = false;
         while (!fin){
             int nbClientsExistant = clients[i*nbClients + i];
-            System.out.println("Etape "+i+ " " + nbClientsExistant + " clients: ");
+            System.out.print("Etape "+i+ " " + nbClientsExistant + " clients: ");
 
             if(nbClientsExistant != 0){
                 for(int c = 0; c < nbClientsExistant; c++){
-                    System.out.println(clients[i*nbClients + i + 1 + c]);
+                    System.out.print(clients[i*nbClients + i + 1 + c]+" ");
                 }
             }
             System.out.println("\n");
             i++;
             if(i == nbEtapes && clients[(nbClients +1)] != nbClients){
-                clients=ou_sont_les_clients(nbEtapes,nbClients);
-                i = 0;
+
+                try {
+                    clients=ou_sont_les_clients(nbEtapes,nbClients);
+                    Thread.sleep(1000);
+                    i = 0;
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
             }
             else if (i == nbEtapes && clients[(nbClients +1)] == nbClients){
-            /*printf("Etape%d: ", i-1);
-            for(int c = 0; c < nbEtapes; c++){
-                printf("%d ", clients[(i-1)*nbClients + i  + c]);
-            }*/
                 fin = true;
             }
 
-            delai(2,1);
+
+
+
+
+        // Condition d'arrêt
+
+        //delai(2,1);
 
         }
 

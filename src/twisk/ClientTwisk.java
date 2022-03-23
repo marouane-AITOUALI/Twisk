@@ -32,6 +32,11 @@ public class ClientTwisk {
 
         Iterator<Etape> ite = monde.iterator() ;
         Simulation simulation = new Simulation(monde);
+
+        /* Changer le nombre de clients
+        simulation.setNbClient(5);
+        */
+
         simulation.simuler();
 
     }

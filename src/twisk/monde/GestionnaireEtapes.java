@@ -33,6 +33,19 @@ public class GestionnaireEtapes implements Iterable<Etape> {
         return etapes.size();
     }
 
+    public Etape getEtape(int i){
+        return etapes.get(i);
+    }
+
+    public int getJetonsParSemaphore(int sem){
+        for(Etape e: etapes){
+            if(e.estUnGuichet()){
+                return ((Guichet)e).getNbJetons();
+            }
+        }
+        return 0;
+    }
+
     @Override
     public Iterator<Etape> iterator() {
         return etapes.iterator();

@@ -60,6 +60,7 @@ public abstract class Etape implements Iterable<Etape> {
      */
     public abstract boolean estUnGuichet();
 
+
     /**
      * Retourne le numéro de l'étape
      * @return Numero de l'étape
