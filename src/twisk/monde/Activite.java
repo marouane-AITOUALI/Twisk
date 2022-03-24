@@ -71,7 +71,11 @@ public class Activite extends Etape{
      * @return Nom de l'étape, son temps et son écart temps
      */
     public String toString(){
-        return getNom()+":  "+this.gestionSucc.nbEtapes()+" successeur - "+gestionSucc.toString();
+        int nombreSuccesseurs = this.gestionSucc.nbEtapes();
+        if(nombreSuccesseurs == 0){
+            return getNom()+":  1 successeur - Sortie"+gestionSucc.toString();
+        }
+        return getNom()+":  "+nombreSuccesseurs+" successeur - "+gestionSucc.toString();
     }
 
     public String toC(){

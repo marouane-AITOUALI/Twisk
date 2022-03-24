@@ -10,6 +10,10 @@ public class SasSortie extends Activite {
         super("Sortie", 4, 2);
     }
 
+    public String toString(){
+        return "Sortie: 0 successeur -";
+    }
+
     public String toC(){
         return "";
     }

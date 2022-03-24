@@ -3,6 +3,7 @@ package twisk.monde;
 import twisk.outils.FabriqueNumero;
 
 import java.util.Iterator;
+import java.util.Locale;
 
 public abstract class Etape implements Iterable<Etape> {
 

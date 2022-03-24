@@ -10,31 +10,30 @@ import java.util.Scanner;
 
 public class Simulation {
 
-    private Monde monde;
-    private KitC kit = new KitC();
+
+    private KitC kit;
     private int nbClients = 3;
 
 
     /**
      * Constructeur de la classe simulation
      */
-    public Simulation(Monde monde){
-        this.monde = monde;
-
+    public Simulation(){
+        this.kit = new KitC();
     }
 
     public native int[] start_simulation(int nbEtapes, int nbServices, int nbClients, int [] tabJetonsServices);
     public native void nettoyage();
     public native int[] ou_sont_les_clients(int nbEtapes, int nbClients);
 
-    public void setNbClient(int nbClient){
+    public void setNbClients(int nbClient){
         this.nbClients = nbClient;
     }
 
     /**
      * fonction affiche les étapes du monde
      */
-    public void simuler(){
+    public void simuler(Monde monde){
         Iterator<Etape> it = monde.iterator();
         while(it.hasNext()){
             System.out.println(it.next().toString());
