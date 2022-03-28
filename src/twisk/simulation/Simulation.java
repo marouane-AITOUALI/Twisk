@@ -65,19 +65,14 @@ public class Simulation {
 
         for(int i = 0; i < nbGuichet; i++){
             tabJetonsGuichet[i] = monde.getGestionEtape().getJetonsParSemaphore(j);
-            System.out.println(tabJetonsGuichet[i]);
             j++;
-            /*System.out.println("Entrer le nombre de jetons du guichet"+ (i+1)+": ");
-            jetonsGuichet = s.nextInt();
-            tabJetonsGuichet[i] = jetonsGuichet;*/
-
         }
 
 
         int []tabProcessus = start_simulation(nbEtapes,nbGuichet,nbClients,tabJetonsGuichet);
 
 
-        System.out.print("Les clients: ");
+        System.out.print("\nLes clients: ");
         for (int i =0; i < nbClients; i++){
             if(i != nbClients - 1){
                 System.out.print(""+tabProcessus[i]+", ");

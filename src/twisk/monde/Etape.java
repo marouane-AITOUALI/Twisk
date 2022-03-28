@@ -2,14 +2,19 @@ package twisk.monde;
 
 import twisk.outils.FabriqueNumero;
 
+import java.text.Normalizer;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Locale;
+import java.util.regex.Pattern;
 
 public abstract class Etape implements Iterable<Etape> {
 
     protected String nom;
+    protected ArrayList<String> nomEtapes = new ArrayList<>();
     protected GestionnaireSuccesseurs gestionSucc;
     protected int numEtape;
+    protected int indiceEtapeDuplique = 2;
 
 
 
@@ -19,11 +24,24 @@ public abstract class Etape implements Iterable<Etape> {
      * @param nom Nom de l'étape
      */
     public Etape(String nom){
+        nom = nom.replaceAll(" ", "_");
+        nom = sansAccent(nom);
+        if(!nomEtapes.isEmpty() && nomEtapes.contains(nom)){
+            nom = nom+indiceEtapeDuplique;
+            indiceEtapeDuplique++;
+        }
         this.nom = nom;
+        nomEtapes.add(nom);
         gestionSucc = new GestionnaireSuccesseurs();
         numEtape = FabriqueNumero.getInstance().getNumeroEtape();
     }
 
+    public static String sansAccent(String s)
+    {
+        String strTemp = Normalizer.normalize(s, Normalizer.Form.NFD);
+        Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+        return pattern.matcher(strTemp).replaceAll("");
+    }
     public int nbSuccesseurs(){
         return gestionSucc.nbEtapes();
     }
