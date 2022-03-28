@@ -11,13 +11,9 @@ import java.util.regex.Pattern;
 public abstract class Etape implements Iterable<Etape> {
 
     protected String nom;
-    protected ArrayList<String> nomEtapes = new ArrayList<>();
     protected GestionnaireSuccesseurs gestionSucc;
     protected int numEtape;
     protected int indiceEtapeDuplique = 2;
-
-
-
 
     /**
      * constructeur de la classe Etape
@@ -26,22 +22,24 @@ public abstract class Etape implements Iterable<Etape> {
     public Etape(String nom){
         nom = nom.replaceAll(" ", "_");
         nom = sansAccent(nom);
-        if(!nomEtapes.isEmpty() && nomEtapes.contains(nom)){
-            nom = nom+indiceEtapeDuplique;
-            indiceEtapeDuplique++;
-        }
-        this.nom = nom;
-        nomEtapes.add(nom);
         gestionSucc = new GestionnaireSuccesseurs();
+        this.nom = nom;
         numEtape = FabriqueNumero.getInstance().getNumeroEtape();
     }
 
+    /**
+     * Retourne s sans accent
+     * @param s String à enlever les accents
+     * @return String s passé en paramètre sans accent
+     */
     public static String sansAccent(String s)
     {
         String strTemp = Normalizer.normalize(s, Normalizer.Form.NFD);
         Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
         return pattern.matcher(strTemp).replaceAll("");
     }
+
+
     public int nbSuccesseurs(){
         return gestionSucc.nbEtapes();
     }
