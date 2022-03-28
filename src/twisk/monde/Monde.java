@@ -77,6 +77,10 @@ public class Monde implements Iterable<Etape> {
         return nombre;
     }
 
+    /**
+     * Retourne le gestionnaire des étapes
+     * @return Retourne le gestionnaire des étapes
+     */
     public GestionnaireEtapes getGestionEtape(){
         return gestionEtape;
     }
@@ -103,7 +107,10 @@ public class Monde implements Iterable<Etape> {
         return s.toString();
     }
 
-
+    /**
+     * Retourne l'iterateur d'étapes du gestionnaire des étapes
+     * @return Retourne l'iterateur d'étapes du gestionnaire des étapes
+     */
     public Iterator<Etape> iterator(){
         return gestionEtape.iterator();
     }

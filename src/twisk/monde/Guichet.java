@@ -33,6 +33,10 @@ public class Guichet extends Etape {
         semaphore = FabriqueNumero.getInstance().getNumeroSemaphore();
     }
 
+    /**
+     * Retourne le numero de semaphore
+     * @return Retourne le numero de semaphore
+     */
     public int getSemaphore(){
         return semaphore;
     }

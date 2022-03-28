@@ -59,6 +59,10 @@ public class KitC {
 
     }
 
+    /**
+     * Cree le fichier client.c et copie dedans le code C
+     * @param codeC Code c à copier dans le fichier client.c
+     */
     public void creerFichier(String codeC){
         try {
             File file = new File("/tmp/twisk/client.c");
@@ -71,6 +75,9 @@ public class KitC {
         }
     }
 
+    /**
+     * Compile le fichier client.c
+     */
     public void compiler(){
 
         try{
@@ -92,6 +99,9 @@ public class KitC {
         }
     }
 
+    /**
+     * Construit la librairie libTwisk
+     */
     public void construireLibrairie(){
         try {
             String commande = "gcc -shared /tmp/twisk/programmeC.o /tmp/twisk/codeNatif.o" +

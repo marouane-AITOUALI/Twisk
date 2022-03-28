@@ -70,6 +70,10 @@ public abstract class Etape implements Iterable<Etape> {
         return nom;
     }
 
+    /**
+     * Modifie le nom de l'étape
+     * @param nom Nouveau nom de l'étape
+     */
     public void setNom(String nom){
         this.nom = nom;
     }

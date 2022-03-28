@@ -37,15 +37,22 @@ public class GestionnaireEtapes implements Iterable<Etape> {
         return etapes.get(i);
     }
 
+
     public int getJetonsParSemaphore(int sem){
         for(Etape e: etapes){
             if(e.estUnGuichet()){
-                return ((Guichet)e).getNbJetons();
+                if (((Guichet)e).getSemaphore() == sem){
+                    return ((Guichet)e).getNbJetons();
+                }
             }
         }
         return 0;
     }
 
+    /**
+     * Retourne l'iterateur du gestionnaire d'étapes
+     * @return Iterateur de gestionnaire d'étapes
+     */
     @Override
     public Iterator<Etape> iterator() {
         return etapes.iterator();
