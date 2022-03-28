@@ -9,7 +9,7 @@ public class ClientTwisk {
     public static void main(String []args){
         Monde monde = new Monde();
 
-        Activite zoo = new Activite("toboggan", 3, 1);
+        Activite zoo = new Activite("balade au zoo", 3, 1);
         Guichet guichet = new Guichet("accès au toboggan", 2);
         Activite tob = new ActiviteRestreinte("toboggan", 2, 1);
 
