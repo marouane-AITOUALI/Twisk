@@ -70,6 +70,9 @@ public abstract class Etape implements Iterable<Etape> {
         return nom;
     }
 
+    public void setNom(String nom){
+        this.nom = nom;
+    }
 
     /**
      * Retourne s'il s'agit d'un guichet
