@@ -25,7 +25,12 @@ public class GestionnaireClients implements Iterable<Client> {
     }
 
     public void allerA(int numeroClient, Etape etape, int rang){
-
+        for(Client client: clients){
+            if(client.getNumeroClient() == numeroClient){
+                client.allerA(etape, rang);
+                break;
+            }
+        }
     }
 
     public void nettoyer(){

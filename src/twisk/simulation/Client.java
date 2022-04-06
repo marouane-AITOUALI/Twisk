@@ -17,4 +17,8 @@ public class Client {
         this.rang = rang;
     }
 
+    public int getNumeroClient(){
+        return numeroClient;
+    }
+
 }
