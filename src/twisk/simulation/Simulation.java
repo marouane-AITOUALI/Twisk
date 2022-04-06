@@ -8,10 +8,11 @@ import twisk.outils.KitC;
 import java.util.Iterator;
 import java.util.Scanner;
 
-public class Simulation {
+public class Simulation implements Iterable<Client> {
 
 
     private KitC kit;
+    private GestionnaireClients gestionnaireClients;
     private int nbClients = 3;
 
 
@@ -20,6 +21,7 @@ public class Simulation {
      */
     public Simulation(){
         this.kit = new KitC();
+        gestionnaireClients = new GestionnaireClients(nbClients);
     }
 
     public native int[] start_simulation(int nbEtapes, int nbServices, int nbClients, int [] tabJetonsServices);
@@ -31,7 +33,7 @@ public class Simulation {
     }
 
     /**
-     * fonction affiche les étapes du monde
+     * fonction qui simule les processus dans le monde
      */
     public void simuler(Monde monde){
         Iterator<Etape> it = monde.iterator();
@@ -84,17 +86,18 @@ public class Simulation {
         System.out.println("\n");
 
         int []clients = ou_sont_les_clients(nbEtapes,nbClients);
-
+        gestionnaireClients.setClients(clients);
 
         int i = 0;
         boolean fin = false;
         while (!fin){
             int nbClientsExistant = clients[i*nbClients + i];
             System.out.print("Etape "+i+ " ("+monde.getNomparNumero(i)+") " + nbClientsExistant + " clients: ");
-
+            Etape etape = monde.getEtapeParNumero(i);
             if(nbClientsExistant != 0){
                 for(int c = 0; c < nbClientsExistant; c++){
-                    System.out.print(clients[i*nbClients + i + 1 + c]+" ");
+                    int pid = clients[i*nbClients + i + 1 + c];
+                    System.out.print(pid+" ");
                 }
             }
             System.out.println("\n");
@@ -130,7 +133,12 @@ public class Simulation {
         //System.out.println(monde.toC());
     }
 
-
-
-
+    /**
+     * Retourne l'iterateur sur les clients
+     * @return Iterateur de Client
+     */
+    @Override
+    public Iterator<Client> iterator() {
+        return gestionnaireClients.iterator();
+    }
 }

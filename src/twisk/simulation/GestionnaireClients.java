@@ -8,14 +8,14 @@ import java.util.Iterator;
 
 public class GestionnaireClients implements Iterable<Client> {
 
-    private ArrayList<Client> clients = new ArrayList<>();
+    private ArrayList<Client> clients;
 
     public GestionnaireClients(){
-
+        clients = new ArrayList<>();
     }
 
     public GestionnaireClients(int nbClients){
-
+        clients = new ArrayList<>(nbClients);
     }
 
     public void setClients(int ... tabClients){
@@ -34,7 +34,7 @@ public class GestionnaireClients implements Iterable<Client> {
     }
 
     public void nettoyer(){
-
+        clients.clear();
     }
 
     public Iterator<Client> iterator(){

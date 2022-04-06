@@ -44,6 +44,15 @@ public class Monde implements Iterable<Etape> {
         gestionEtape.ajouter(etapes);
     }
 
+    public Etape getEtapeParNumero(int i){
+        for(Etape e: gestionEtape){
+            if(e.getNumEtape() == i){
+                return e;
+            }
+        }
+        return null;
+    }
+
     public String getNomparNumero(int i){
         for(Etape e: gestionEtape){
             if(e.getNumEtape() == i){
@@ -97,7 +106,7 @@ public class Monde implements Iterable<Etape> {
             Etape etape = iterator.next();
             s.append("#define " + etape.getNom() + " " + etape.getNumEtape() + "\n");
             if (etape.estUnGuichet()) {
-                s.append("#define num_sem_" + etape.getNom() + " " + ((Guichet) etape).getSemaphore());
+                s.append("#define num_sem_" + etape.getNom() + " " + ((Guichet) etape).getSemaphore()+"\n");
             }
         }
             s.append("\n\nvoid simulation(int ids){\n\n");

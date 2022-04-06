@@ -89,6 +89,7 @@ public class Activite extends Etape{
 
         }
         else{
+            s.append("    delai("+getTemps()+","+getEcartTemps()+");\n");
             s.append("    transfert("+getNom()+",Sortie);\n");
         }
 
