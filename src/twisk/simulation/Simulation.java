@@ -93,7 +93,7 @@ public class Simulation implements Iterable<Client> {
         while (!fin){
             int nbClientsExistant = clients[i*nbClients + i];
             System.out.print("Etape "+i+ " ("+monde.getNomparNumero(i)+") " + nbClientsExistant + " clients: ");
-            Etape etape = monde.getEtapeParNumero(i);
+            //Etape etape = monde.getEtapeParNumero(i);
             if(nbClientsExistant != 0){
                 for(int c = 0; c < nbClientsExistant; c++){
                     int pid = clients[i*nbClients + i + 1 + c];
@@ -106,24 +106,20 @@ public class Simulation implements Iterable<Client> {
 
                 try {
                     clients=ou_sont_les_clients(nbEtapes,nbClients);
+                    gestionnaireClients.setClients(clients);
                     Thread.sleep(1000);
                     i = 0;
                 } catch (InterruptedException e) {
+                    gestionnaireClients.nettoyer();
+                    nettoyage();
                     e.printStackTrace();
                 }
 
             }
             else if (i == nbEtapes && clients[(nbClients +1)] == nbClients){
                 fin = true;
+                gestionnaireClients.nettoyer();
             }
-
-
-
-
-
-        // Condition d'arrêt
-
-        //delai(2,1);
 
         }
 

@@ -22,6 +22,7 @@ public class ClientTwisk {
         monde.aCommeEntree(zoo);
         monde.aCommeSortie(tob);
 
+
         //s.setNbClients(5);
 
 
@@ -45,7 +46,6 @@ public class ClientTwisk {
         //s.setNbClients(5);
         //s.simuler(monde);
         s.simuler(monde);
-        s.simuler(monde2);
     }
     }
 
