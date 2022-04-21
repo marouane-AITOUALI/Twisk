@@ -12,7 +12,8 @@ public class ClassLoaderPerso extends ClassLoader {
     }
 
     /**
-     * Chargement dans le classLoader de la classe, si c'est la classe Simulation qui est demandée, alors on va directement lire cette classe
+     * Chargement dans le classLoader de la classe, si c'est la classe Simulation
+     * qui est demandée, alors on va directement lire cette classe
      * à partir du fichier .class et on la conserve dans le ClassLoader personnel
      * @param name nom complétement spécifié de la classe à charger
      * @return la classe chargée
