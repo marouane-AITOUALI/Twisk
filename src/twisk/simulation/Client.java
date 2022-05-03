@@ -21,4 +21,8 @@ public class Client {
         return numeroClient;
     }
 
+    public Etape getEtape(){
+        return etape;
+    }
+
 }
