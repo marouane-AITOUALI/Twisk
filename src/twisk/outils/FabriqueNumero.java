@@ -48,10 +48,18 @@ public class FabriqueNumero {
         cptSemaphore = 1;
     }
 
+    /**
+     * Retourne le numero de la librairire
+     * @return Numero de la librairie
+     */
     public int getNumLib(){
         return numLib;
     }
 
+    /**
+     * Retourne numero librairie a télécharger
+     * @return Retourne le numero de la libraire a telecharger
+     */
     public int getNumLibLoad(){
         return numLib++;
     }
