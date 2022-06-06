@@ -3,6 +3,7 @@ package twisk.simulation;
 import twisk.monde.Etape;
 import twisk.monde.Monde;
 import twisk.monde.SasEntree;
+import twisk.outils.FabriqueNumero;
 import twisk.outils.KitC;
 
 import java.util.Iterator;
@@ -44,8 +45,8 @@ public class Simulation implements Iterable<Client> {
         kit.creerFichier(monde.toC());
         kit.compiler();
         kit.construireLibrairie();
-
-        String library = "/tmp/twisk/libTwisk.so";
+        int numLib = FabriqueNumero.getInstance().getNumLibLoad();
+        String library = "/tmp/twisk/libTwisk"+numLib+".so";
         System.load(library);
 
 

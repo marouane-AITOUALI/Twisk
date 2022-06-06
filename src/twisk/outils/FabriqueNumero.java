@@ -3,6 +3,7 @@ package twisk.outils;
 public class FabriqueNumero {
     private int cptEtape = 0;
     private int cptSemaphore = 1;
+    private int numLib = 1;
 
     /**
      */
@@ -44,7 +45,15 @@ public class FabriqueNumero {
      */
     public void reset(){
         cptEtape = 0;
-        cptSemaphore = 0;
+        cptSemaphore = 1;
+    }
+
+    public int getNumLib(){
+        return numLib;
+    }
+
+    public int getNumLibLoad(){
+        return numLib++;
     }
 
 }

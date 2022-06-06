@@ -104,8 +104,9 @@ public class KitC {
      */
     public void construireLibrairie(){
         try {
+            int numLib = FabriqueNumero.getInstance().getNumLib();
             String commande = "gcc -shared /tmp/twisk/programmeC.o /tmp/twisk/codeNatif.o" +
-                    " /tmp/twisk/client.o -o /tmp/twisk/libTwisk.so";
+                    " /tmp/twisk/client.o -o /tmp/twisk/libTwisk"+numLib+".so";
             Runtime runtime = Runtime.getRuntime();
             Process p;
             p = runtime.exec(commande);

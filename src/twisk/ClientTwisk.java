@@ -2,6 +2,7 @@ package twisk;
 
 import twisk.monde.*;
 import twisk.outils.ClassLoaderPerso;
+import twisk.outils.FabriqueNumero;
 import twisk.simulation.Client;
 import twisk.simulation.Simulation;
 
@@ -30,6 +31,28 @@ public class ClientTwisk {
         monde.aCommeEntree(billiard);
         monde.aCommeSortie(cinema);
 
+
+
+        try {
+            FabriqueNumero.getInstance().reset();
+            ClassLoaderPerso classLoaderPerso = new ClassLoaderPerso(ClientTwisk.class.getClassLoader());
+            Class<?> simulation = classLoaderPerso.loadClass("twisk.simulation.Simulation");
+
+            //Constructor<?> constructor = simulation.getConstructor();
+            Object instance = simulation.getDeclaredConstructor().newInstance();
+
+            Method setNbClients = simulation.getDeclaredMethod("setNbClients", int.class);
+            Method simuler = simulation.getDeclaredMethod("simuler", twisk.monde.Monde.class);
+
+            setNbClients.invoke(instance, 4);
+            simuler.invoke(instance, monde);
+
+        }
+        catch (ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException |
+               InvocationTargetException e) {
+            throw new RuntimeException(e);
+        }
+
         Monde monde2 = new Monde();
         Activite billiard1 = new Activite("piscine",2,1);
         Activite shop1 = new Activite("toboggan",3,1);
@@ -44,9 +67,8 @@ public class ClientTwisk {
         monde2.aCommeEntree(billiard1);
         monde2.aCommeSortie(cinema1);
 
-
-
         try {
+            FabriqueNumero.getInstance().reset();
             ClassLoaderPerso classLoaderPerso = new ClassLoaderPerso(ClientTwisk.class.getClassLoader());
             Class<?> simulation = classLoaderPerso.loadClass("twisk.simulation.Simulation");
 
@@ -54,10 +76,9 @@ public class ClientTwisk {
             Object instance = simulation.getDeclaredConstructor().newInstance();
 
             Method setNbClients = simulation.getDeclaredMethod("setNbClients", int.class);
-            Method simuler = simulation.getDeclaredMethod("simuler", Monde.class);
+            Method simuler = simulation.getDeclaredMethod("simuler", twisk.monde.Monde.class);
 
             setNbClients.invoke(instance, 4);
-            simuler.invoke(instance, monde);
             simuler.invoke(instance, monde2);
 
         }
@@ -73,6 +94,7 @@ public class ClientTwisk {
         //s.setNbClients(5);
         //s.simuler(monde);
         //s.simuler(monde);
+        FabriqueNumero.getInstance().reset();
     }
     }
 
