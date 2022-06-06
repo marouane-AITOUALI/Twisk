@@ -24,6 +24,15 @@ public class GestionnaireClients implements Iterable<Client> {
         }
     }
 
+    public Client getClientbyId(int id){
+        for (Client client: clients){
+            if(client.getNumeroClient() == id){
+                return client;
+            }
+        }
+        return null;
+    }
+
     public void allerA(int numeroClient, Etape etape, int rang){
         for(Client client: clients){
             if(client.getNumeroClient() == numeroClient){

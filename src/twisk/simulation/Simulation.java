@@ -72,7 +72,7 @@ public class Simulation implements Iterable<Client> {
 
 
         int []tabProcessus = start_simulation(nbEtapes,nbGuichet,nbClients,tabJetonsGuichet);
-
+        gestionnaireClients.setClients(tabProcessus);
 
         System.out.print("\nLes clients: ");
         for (int i =0; i < nbClients; i++){
@@ -86,7 +86,7 @@ public class Simulation implements Iterable<Client> {
         System.out.println("\n");
 
         int []clients = ou_sont_les_clients(nbEtapes,nbClients);
-        gestionnaireClients.setClients(clients);
+
 
         int i = 0;
         boolean fin = false;
@@ -97,6 +97,8 @@ public class Simulation implements Iterable<Client> {
             if(nbClientsExistant != 0){
                 for(int c = 0; c < nbClientsExistant; c++){
                     int pid = clients[i*nbClients + i + 1 + c];
+                    Etape etape = monde.getEtapeParNumero(i);
+                    gestionnaireClients.getClientbyId(pid).allerA(etape, i+1);
                     System.out.print(pid+" ");
                 }
             }
