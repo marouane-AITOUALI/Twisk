@@ -1,0 +1,26 @@
+@startuml
+package twisk{
+package monde{
+class Activite extends Etape{}
+class ActiviteRestreinte extends Activite{}
+abstract class Etape {}
+class GestionnaireEtapes{}
+class GestionnaireSuccesseurs{}
+class Guichet extends Etape{}
+class Monde {}
+class SasEntree extends Activite{}
+class SasSortie extends Activite{}
+}
+package outils{
+class ClassLoaderPerso extends ClassLoader{}
+class FabriqueNumero{}
+class KitC{}
+class ThreadsManager{}
+}
+package simulation{
+class Client{}
+class GestionnaireClients{}
+class Simulation{}
+}
+}
+@enduml
