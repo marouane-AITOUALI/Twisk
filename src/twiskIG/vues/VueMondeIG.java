@@ -38,13 +38,24 @@ public class VueMondeIG extends Pane implements Observateur{
 
         for(EtapeIG e: mondeIG){
             if(e.getEstAffiche()){
-                if(e)
-                VueActiviteIG vueActiviteIG = new VueActiviteIG(mondeIG, e);
-                this.getChildren().add(vueActiviteIG);
-                for(PointDeControleIG p: e){
-                    VuePointDeControleIG vuePointDeControleIG = new VuePointDeControleIG(mondeIG,p);
-                    this.getChildren().add(vuePointDeControleIG);
+                if(e.estUneActivite()){
+                    VueActiviteIG vueActiviteIG = new VueActiviteIG(mondeIG, e);
+                    this.getChildren().add(vueActiviteIG);
+                    for(PointDeControleIG p: e){
+                        VuePointDeControleIG vuePointDeControleIG = new VuePointDeControleIG(mondeIG,p);
+                        this.getChildren().add(vuePointDeControleIG);
+                    }
+
                 }
+                else{
+                    VueGuichetIG vueGuichetIG = new VueGuichetIG(mondeIG, e);
+                    this.getChildren().add(vueGuichetIG);
+                    for(PointDeControleIG p: e){
+                        VuePointDeControleIG vuePointDeControleIG = new VuePointDeControleIG(mondeIG,p);
+                        this.getChildren().add(vuePointDeControleIG);
+                    }
+                }
+
             }
         }
 

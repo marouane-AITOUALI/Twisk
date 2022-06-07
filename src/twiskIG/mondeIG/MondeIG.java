@@ -12,6 +12,7 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG> {
     private ArrayList<ArcIG> tabArc = new ArrayList<>();
     private ArrayList<PointDeControleIG> tabPointDeControle = new ArrayList<>();
     int alpha = 1;
+    int alphaGuichet = 1;
 
     /**
      * Constructeur du MondeIG qui contient une activité, à la création
@@ -30,13 +31,17 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG> {
         if (type.equals("Activité")){
             //System.out.println("passed by here !!");
             String id = ins.getIdentifiantEtape();
-            ActiviteIG activiteIG = new ActiviteIG("Activite"+alpha, id, 80, 45);
+            ActiviteIG activiteIG = new ActiviteIG("Activite"+alpha, id, 120, 90);
             etapes.put(id, activiteIG);
             alpha++;
             this.notifierObservateurs();
         }
         else if(type.equals("Guichet")){
-
+            String id = ins.getIdentifiantEtape();
+            GuichetIG guichetIG = new GuichetIG("Guichet"+alphaGuichet, id, 120, 100);
+            etapes.put(id, guichetIG);
+            alphaGuichet++;
+            this.notifierObservateurs();
         }
     }
 
