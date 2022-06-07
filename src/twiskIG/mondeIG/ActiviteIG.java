@@ -10,13 +10,23 @@ public class ActiviteIG extends EtapeIG {
     }
 
     @Override
-    public Boolean estUneActivite() {
+    public boolean estUneActivite() {
         return true;
     }
 
     @Override
-    public Boolean estUnGuichet() {
+    public boolean estUnGuichet() {
         return false;
+    }
+
+    @Override
+    public boolean estUneEntree() {
+        return estUneEntree;
+    }
+
+    @Override
+    public boolean estUneSortie() {
+        return estUneSortie;
     }
 
 

@@ -62,4 +62,3 @@ public class VueMondeIG extends Pane implements Observateur{
     }
 
 }
-

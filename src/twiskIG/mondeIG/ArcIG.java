@@ -4,11 +4,20 @@ public class ArcIG {
     private PointDeControleIG point1;
     private PointDeControleIG point2;
     private boolean estAffiche;
+    private boolean estSelectionne = false;
 
     public ArcIG(PointDeControleIG p1, PointDeControleIG p2){
         estAffiche = true;
         point1 = p1;
         point2 = p2;
+    }
+
+    public void setEstSelectionne(){
+        estSelectionne = !estSelectionne;
+    }
+
+    public boolean getEstSelectionne(){
+        return estSelectionne;
     }
 
     public PointDeControleIG getDepart() {

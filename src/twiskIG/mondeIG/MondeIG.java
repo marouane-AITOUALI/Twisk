@@ -33,7 +33,7 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG> {
         if (type.equals("Activité")){
             //System.out.println("passed by here !!");
             String id = ins.getIdentifiantEtape();
-            ActiviteIG activiteIG = new ActiviteIG("Activite"+alpha, id, 150, 90);
+            ActiviteIG activiteIG = new ActiviteIG("Activite"+alpha, id, 130, 90);
             etapes.put(id, activiteIG);
             alpha++;
             this.notifierObservateurs();
@@ -192,6 +192,29 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG> {
         }
         notifierObservateurs();
     }
+
+
+    /**
+     * Désélectionne les élements sélectionnés dans le monde
+     */
+    public void effacerSelection() {
+        for (EtapeIG etape : this) {
+            if (etape.estSelectionnee()) {
+                etape.setEstSelectionnee();
+            }
+        }
+        for (ArcIG arc : tabArc) {
+            if (arc.getEstSelectionne()) {
+                arc.setEstSelectionne();
+            }
+        }
+        for (PointDeControleIG pdc : tabPointDeControle) {
+            pdc.setEstSelectionne();
+        }
+        viderPointDeControle();
+        notifierObservateurs();
+    }
+
 
     public void simuler() throws MondeException {
 

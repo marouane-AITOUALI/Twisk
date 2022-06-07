@@ -13,6 +13,8 @@ public abstract class EtapeIG implements Iterable<PointDeControleIG> {
     protected int posY;
     protected int largeur;
     protected boolean estSelectionnee = false;
+    protected boolean estUneEntree = false;
+    protected boolean estUneSortie = false;
     protected boolean estAffiche = true;
     protected int hauteur;
 
@@ -96,8 +98,12 @@ public abstract class EtapeIG implements Iterable<PointDeControleIG> {
         pdc.clear();
     }
 
-    public abstract Boolean estUneActivite();
+    public abstract boolean estUneActivite();
 
-    public abstract Boolean estUnGuichet();
+    public abstract boolean estUnGuichet();
+
+    public abstract boolean estUneEntree();
+
+    public abstract boolean estUneSortie();
 
 }

@@ -1,7 +1,6 @@
 package twiskIG.vues;
 
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import twiskIG.mondeIG.EtapeIG;
 import twiskIG.mondeIG.GuichetIG;
 import twiskIG.mondeIG.MondeIG;

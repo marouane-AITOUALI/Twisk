@@ -2,7 +2,7 @@ package twiskIG.ecouteurs;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
-import twiskIG.exceptions.ExceptionArcIG;
+import twiskIG.exceptions.TwiskException;
 import twiskIG.mondeIG.MondeIG;
 import twiskIG.mondeIG.PointDeControleIG;
 
@@ -21,9 +21,10 @@ public class EcouteurPointDeControle implements EventHandler<MouseEvent> {
     public void handle(MouseEvent mouseEvent) {
         try {
             monde.pointDeControleSelectionne(point);
+
             point.setEstSelectionne();
             monde.notifierObservateurs();
-        } catch (ExceptionArcIG e) {
+        } catch (TwiskException e) {
             point.setEstSelectionne();
             monde.viderPointDeControle();
             monde.notifierObservateurs();

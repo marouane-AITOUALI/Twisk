@@ -10,6 +10,16 @@ public class GuichetIG extends EtapeIG {
         super(nom, idf, larg, haut);
     }
 
+    @Override
+    public boolean estUneEntree() {
+        return false;
+    }
+
+    @Override
+    public boolean estUneSortie() {
+        return false;
+    }
+
     public int getNbJetons(){
         return nbJetons;
     }
@@ -19,12 +29,12 @@ public class GuichetIG extends EtapeIG {
     }
 
     @Override
-    public Boolean estUneActivite() {
+    public boolean estUneActivite() {
         return false;
     }
 
     @Override
-    public Boolean estUnGuichet() {
+    public boolean estUnGuichet() {
         return true;
     }
 

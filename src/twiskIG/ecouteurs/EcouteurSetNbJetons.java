@@ -3,8 +3,6 @@ package twiskIG.ecouteurs;
 import javafx.scene.control.TextInputDialog;
 import twiskIG.mondeIG.MondeIG;
 
-import java.text.Normalizer;
-
 public class EcouteurSetNbJetons {
 
     private MondeIG mondeIG;

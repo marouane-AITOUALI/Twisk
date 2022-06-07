@@ -2,8 +2,10 @@ package twiskIG.vues;
 
 import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
+import twiskIG.ecouteurs.EcouteurArc;
 import twiskIG.mondeIG.ArcIG;
 import twiskIG.mondeIG.MondeIG;
 
@@ -13,6 +15,14 @@ public class VueArcIG extends Pane implements Observateur{
         Line ligne = dessinerLigne(arc);
         Polygon p = dessinerTriangle(ligne, arc);
         this.getChildren().addAll(ligne,p);
+        this.setOnMouseClicked(new EcouteurArc(arc, monde));
+        if(arc.getEstSelectionne()){
+            ligne.setFill(Color.RED);
+            ligne.setStroke(Color.RED);
+            p.setFill(Color.RED);
+            ligne.setStrokeWidth(5);
+            p.setStrokeWidth(5);
+        }
 
     }
 
