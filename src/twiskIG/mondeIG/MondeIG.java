@@ -1,6 +1,8 @@
 package twiskIG.mondeIG;
 
+import twisk.monde.Monde;
 import twiskIG.exceptions.ExceptionArcIG;
+import twiskIG.exceptions.MondeException;
 import twiskIG.outils.FabriqueIdentifiant;
 
 import java.util.*;
@@ -31,14 +33,14 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG> {
         if (type.equals("Activité")){
             //System.out.println("passed by here !!");
             String id = ins.getIdentifiantEtape();
-            ActiviteIG activiteIG = new ActiviteIG("Activite"+alpha, id, 120, 90);
+            ActiviteIG activiteIG = new ActiviteIG("Activite"+alpha, id, 150, 90);
             etapes.put(id, activiteIG);
             alpha++;
             this.notifierObservateurs();
         }
         else if(type.equals("Guichet")){
             String id = ins.getIdentifiantEtape();
-            GuichetIG guichetIG = new GuichetIG("Guichet"+alphaGuichet, id, 120, 100);
+            GuichetIG guichetIG = new GuichetIG("Guichet"+alphaGuichet, id, 130, 90);
             etapes.put(id, guichetIG);
             alphaGuichet++;
             this.notifierObservateurs();
@@ -179,5 +181,27 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG> {
             }
         }
         notifierObservateurs();
+    }
+
+    public void setNbJetons(int nbJetons){
+        for(EtapeIG e: this){
+            if(e.estUnGuichet() && e.estSelectionnee() ){
+                ((GuichetIG)e).setNbJetons(nbJetons);
+                e.setEstSelectionnee();
+            }
+        }
+        notifierObservateurs();
+    }
+
+    public void simuler() throws MondeException {
+
+    }
+
+    private void verfierMondeIG() throws MondeException{
+
+    }
+
+    private Monde creerMonde(){
+        return null;
     }
 }

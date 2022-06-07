@@ -11,7 +11,7 @@ public abstract class VueEtapeIG extends VBox implements Observateur{
 
     private EtapeIG etapeIG;
     private MondeIG mondeIG;
-    private Label label;
+    protected Label label;
 
     public VueEtapeIG(MondeIG monde, EtapeIG e){
         this.mondeIG = monde;

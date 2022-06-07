@@ -3,6 +3,7 @@ package twiskIG.vues;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import twiskIG.mondeIG.EtapeIG;
+import twiskIG.mondeIG.GuichetIG;
 import twiskIG.mondeIG.MondeIG;
 
 public class VueGuichetIG extends VueEtapeIG implements Observateur {
@@ -16,6 +17,7 @@ public class VueGuichetIG extends VueEtapeIG implements Observateur {
         mondeIG = monde;
         etapeIG = e;
         this.getChildren().add(clients);
+        this.label.setText(e.getNom()+": "+((GuichetIG)e).getNbJetons()+" jetons");
         this.clients.setStyle("-fx-border-color: #967FA4;" +
                 "-fx-background-insets: 0 0 -1 0, 0, 1,2;" +
                 "-fx-background-radius: 3px, 3px, 2px, 1px;" +

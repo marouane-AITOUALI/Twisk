@@ -5,6 +5,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import twiskIG.ecouteurs.EcouteurMenuRenommer;
+import twiskIG.ecouteurs.EcouteurSetNbJetons;
 import twiskIG.mondeIG.MondeIG;
 
 public class VueMenu extends MenuBar implements Observateur{
@@ -14,11 +15,13 @@ public class VueMenu extends MenuBar implements Observateur{
     public VueMenu(MondeIG monde){
         super();
         mondeIG = monde;
-        Menu fichier = new Menu("_Fichier");
+        Menu fichier = new Menu("_Paramètres");
         MenuItem quitter = new MenuItem("Quitter");
-        fichier.getItems().add(quitter);
+        MenuItem modifierNbJetons = new MenuItem("setNbJetons");
+        fichier.getItems().addAll(quitter, modifierNbJetons);
 
         quitter.setOnAction(e -> Platform.exit());
+        modifierNbJetons.setOnAction(e-> new EcouteurSetNbJetons(mondeIG));
 
         Menu edition = new Menu("_Edition");
         MenuItem supprimerSelection = new MenuItem("Supprimer la sélection");
