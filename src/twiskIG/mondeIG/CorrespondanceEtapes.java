@@ -37,3 +37,4 @@ public class CorrespondanceEtapes
     public boolean doesContainKey(EtapeIG e){
         return etapeIG_To_Etape.containsKey(e);
     }
+}

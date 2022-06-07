@@ -1,6 +1,10 @@
 package twiskIG.mondeIG;
 
+import javafx.concurrent.Task;
 import twisk.monde.Monde;
+import twisk.outils.FabriqueNumero;
+import twisk.outils.ThreadsManager;
+import twisk.simulation.Simulation;
 import twiskIG.exceptions.ExceptionArcIG;
 import twiskIG.exceptions.MondeException;
 import twiskIG.outils.FabriqueIdentifiant;
@@ -268,10 +272,29 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG> {
 
 
     public void simuler() throws MondeException {
+        verifierMondeIG();
+        FabriqueNumero.getInstance().reset();
+        CorrespondanceEtapes cpr = new CorrespondanceEtapes();
+        Monde monde = creerMonde();
+        Simulation s = new Simulation();
+        s.setNbClients(5);
+        Task<Void> task = new Task<Void>() {
+            @Override
+            protected Void call() throws Exception {
+                try{
+                    s.simuler(monde);
+                    Thread.sleep(10);
+                }
+                catch(InterruptedException e){
 
+                }
+                return null;
+            }
+        };
+        ThreadsManager.getInstance().lancer(task);
     }
 
-    private void verfierMondeIG() throws MondeException{
+    private void verifierMondeIG() throws MondeException{
 
     }
 
