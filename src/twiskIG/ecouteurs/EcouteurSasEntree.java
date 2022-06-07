@@ -8,12 +8,12 @@ public class EcouteurSasEntree implements EventHandler<ActionEvent> {
 
     private MondeIG mondeIG;
 
-    public EcouteurSasEntree(MondeIG mondeIG) {
-
+    public EcouteurSasEntree(MondeIG monde) {
+        mondeIG = monde;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
-
+        mondeIG.setSasEntree();
     }
 }

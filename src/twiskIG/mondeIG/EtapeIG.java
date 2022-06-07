@@ -30,6 +30,16 @@ public abstract class EtapeIG implements Iterable<PointDeControleIG> {
         ajouterPointDeControle();
     }
 
+    public void setEntree(){
+        estUneEntree = !estUneEntree;
+    }
+
+    public void setSortie(){
+        estUneSortie = !estUneSortie;
+
+    }
+
+
     public boolean getEstAffiche(){
         return estAffiche;
     }

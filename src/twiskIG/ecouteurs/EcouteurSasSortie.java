@@ -13,6 +13,6 @@ public class EcouteurSasSortie implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-
+        mondeIG.setSasSortie();
     }
 }

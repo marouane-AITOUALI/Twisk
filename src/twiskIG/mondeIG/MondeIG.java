@@ -157,16 +157,57 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG> {
                         if(arc.getDepart().getIdentifiant().equals(id)
                                 || arc.getArrivee().getIdentifiant().equals(id)){
                             arc.setAffiche(false);
+                            arc.setEstSelectionne();
                             arc.getDepart().setEstSelectionne();
                             arc.getArrivee().setEstSelectionne();
                             iterateur.remove();
                         }
                     }
                 }
-                this.notifierObservateurs();
+
                 etapes.remove(e);
             }
         }
+        Iterator<ArcIG> it = this.iteratorArcIG();
+        while(it.hasNext()) {
+            ArcIG arc = it.next();
+            if (arc.getEstSelectionne()) {
+                arc.setAffiche(false);
+                arc.setEstSelectionne();
+                it.remove();
+                for (PointDeControleIG p : arc.getEtapeDepart()) {
+                    if (p.isSelected()) {
+                        p.setEstSelectionne();
+                    }
+                }
+                for (PointDeControleIG p : arc.getEtapeArrivee()) {
+                    if (p.isSelected()) {
+                        p.setEstSelectionne();
+                    }
+                }
+            }
+        /*for(ArcIG arc: tabArc){
+            if(arc.getEstSelectionne()){
+                arc.setAffiche(false);
+                arc.setEstSelectionne();
+                .remove(arc);
+                for(PointDeControleIG p: arc.getEtapeDepart()){
+                    if(p.isSelected()){
+                        p.setEstSelectionne();
+                    }
+                }
+                for(PointDeControleIG p: arc.getEtapeArrivee()){
+                    if(p.isSelected()){
+                        p.setEstSelectionne();
+                    }
+                }
+
+            }
+        }*/
+        }
+        this.notifierObservateurs();
+
+
     }
 
     /**
@@ -206,6 +247,16 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG> {
         for (ArcIG arc : tabArc) {
             if (arc.getEstSelectionne()) {
                 arc.setEstSelectionne();
+                for(PointDeControleIG p: arc.getEtapeDepart()){
+                    if(p.isSelected()){
+                        p.setEstSelectionne();
+                    }
+                }
+                for(PointDeControleIG p: arc.getEtapeArrivee()){
+                    if(p.isSelected()){
+                        p.setEstSelectionne();
+                    }
+                }
             }
         }
         for (PointDeControleIG pdc : tabPointDeControle) {
@@ -226,5 +277,26 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG> {
 
     private Monde creerMonde(){
         return null;
+    }
+
+    public void setSasEntree() {
+        for(EtapeIG e: this){
+            if(!e.estUnGuichet() && e.estSelectionnee()){
+                e.setEntree();
+                e.setEstSelectionnee();
+            }
+        }
+        notifierObservateurs();
+    }
+
+    public void setSasSortie(){
+        for(EtapeIG e: this){
+            if(!e.estUnGuichet() && e.estSelectionnee()){
+                e.setSortie();
+                e.setEstSelectionnee();
+            }
+        }
+        notifierObservateurs();
+
     }
 }

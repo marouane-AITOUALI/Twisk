@@ -13,6 +13,8 @@ public class VueOutils extends TilePane implements Observateur{
 
     private Button ajoutActivite = new Button("Activite");
     private Button ajoutGuichet = new Button("Guichet");
+
+    private Button simuler = new Button()
     private MondeIG mondeIG;
 
     public VueOutils(MondeIG monde){
